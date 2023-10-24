@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+
+.app{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+@tailwind utilities;
+
