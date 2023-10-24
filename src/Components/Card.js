@@ -3,9 +3,7 @@ import React from "react";
 
 const Card = (props) => {
 
-const handleClick = (e)=>{
-    console.log(e)
-}
+
 
   return (
     <div className="flex gap-3 pt-5 w-full flex-wrap justify-center">

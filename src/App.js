@@ -52,22 +52,44 @@ class App extends React.Component {
         id: 13,
       },
     ],
+    findMovie: "",
   };
 
   deleteMovie = (movie) => {
     const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
-    this.setState({
+    this.setState((state) => ({
       movies: newMovieList,
-    });
+    }));
+  };
+
+  searchMovie = (event) => {
+    const findMovie = event.target.value.toLowerCase(); // Arama metnini küçük harfe çevir
+    this.setState({ findMovie });
   };
 
   render() {
+    const findMovie = this.state.findMovie.toLowerCase(); // State içindeki arama metnini küçük harfe çevir
+
+    let filteredMovies = this.state.movies.filter((f) => {
+      
+      return f.name.toLowerCase().indexOf(findMovie) !== -1; // Her ikisini de küçük harfle karşılaştır
+    });
+
     return (
       <main className="app">
-        <Navbar />
+
+
+          {filteredMovies.length > 0 ? null : (
+              //?css ile uygun şekilde özelleştirebilirsiniz.
+            <h1 className="filter-warning">Aradığınız kriterlere uygun film bulunamadı</h1>
+          )}
+      
+
+
+        <Navbar searchMovieProp={this.searchMovie} />
 
         <div className="flex bg-[#ffd60a] ">
-          <Card movies={this.state.movies} deleteProps={this.deleteMovie} />
+          <Card movies={filteredMovies} deleteProps={this.deleteMovie} />
         </div>
       </main>
     );
