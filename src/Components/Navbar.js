@@ -20,7 +20,7 @@ class Navbar extends React.Component {
           <a href="abc" className="flex items-center">
             <img src={logo} className="h-8 mr-3" alt="Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              İzleDurHadi
+             TMDB API WORKSHOP
             </span>
           </a>
        

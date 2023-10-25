@@ -1,6 +1,7 @@
 import "../Tailwind.css";
 import React from "react";
 
+
 const Card = (props) => {
 
 
@@ -14,18 +15,18 @@ const Card = (props) => {
         >
           <div className="relative lg:w-[330px] md:w-[400px] mx-4 mt-4 lg:h-[400px] md:h-[300px] overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 ">
             <img
-              src={movie.imageURL}
+              src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}
               className="lg:h-[400px] md:h-[300px]  object-cover w-full"
               alt="..."
             />
           </div>
           <div className="p-4 h-25">
             <div className="mb-1 flex items-center justify-between">
-              <p className="block font-sans font-bold leading-relaxed text-blue-gray-900 antialiased text-xl">
-                {movie.name}
+              <p className="block font-sans font-bold leading-relaxed text-blue-gray-900 antialiased text-medium">
+                {movie.title.substring(0, 25) + "..."}
               </p>
-              <p className="block font-sans text-base font-medium  text-white bg-[#f48c06] px-3 py-1 rounded-3xl opacity-75">
-                {`IMDB :${movie.rating}`}
+              <p className="block font-sans font-semibold  text-black bg-[#f48c06] px-3 py-1 rounded-3xl opacity-75">
+                {`IMDB :${movie.vote_average}`}
               </p>
             </div>
             <p className="flex flex-wrap lg:w-72 md:w-full font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
